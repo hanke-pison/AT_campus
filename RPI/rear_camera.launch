@@ -1,0 +1,5 @@
+<launch>
+
+    <node pkg="hanke_pison_image_transport" type="video_publisher" name="rear_camera" ns="rear_pi" />
+
+</launch>

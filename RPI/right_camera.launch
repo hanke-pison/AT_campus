@@ -1,0 +1,6 @@
+<launch>
+
+    <machine name="PI2" address="10.0.2.66" />
+    <node pkg="hanke_pison_image_transport" type="video_publisher" name="right_camera" ns="right_pi" />
+
+</launch>
