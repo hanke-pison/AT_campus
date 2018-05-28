@@ -1,0 +1,15 @@
+<launch>
+    <node name="arduino1" pkg="rosserial_python" type="serial_node.py">
+        <param name="port" value="/dev/ttyACM0"/>
+    </node>
+    
+    <node name="arduino2" pkg="rosserial_python" type="serial_node.py">
+        <param name="port" value="/dev/ttyACM1"/>
+    </node>
+
+    <node name="arduino3" pkg="rosserial_python" type="serial_node.py">
+        <param name="port" value="/dev/ttyACM2"/>
+    </node>
+
+    <node name="teleop" pkg="teleop" type="teleop"/>
+</launch>
