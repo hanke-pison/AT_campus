@@ -30,7 +30,7 @@ namespace HP {
       _voltage_min_mv = voltage_max_mv;
       _voltage_max_mv = voltage_min_mv;
     }
-    _voltage_max_mv = (_voltage_max_mv < _output_voltage_max_mv) ? _voltage_max_mv : _output_voltage_max_mv;
+    _voltage_max_mv = (_voltage_max_mv <= _output_voltage_max_mv) ? _voltage_max_mv : _output_voltage_max_mv;
   }
   
   uint16_t DrivingMotor::read_voltage() {
@@ -54,17 +54,17 @@ namespace HP {
   }
     
   void DrivingMotor::write_voltage(uint16_t voltage_mv) {
-    voltage_mv = (voltage_mv > _voltage_max_mv) ? _voltage_max_mv : (voltage_mv < _voltage_min_mv) ? _voltage_min_mv : voltage_mv;
+    voltage_mv = (voltage_mv >= _voltage_max_mv) ? _voltage_max_mv : ((voltage_mv <= _voltage_min_mv) ? _voltage_min_mv : voltage_mv);
     write_ocr(voltage_to_ocr(voltage_mv));
   }
 
   // private
 
-  uint8_t DrivingMotor::voltage_to_ocr(uint16_t voltage_mv) {
+  uint16_t DrivingMotor::voltage_to_ocr(uint16_t voltage_mv) {
     return map(voltage_mv, 0, _output_voltage_max_mv, 0, _output_ocr_max);
   }
 
-  uint16_t DrivingMotor::ocr_to_voltage(uint8_t ocr) {
+  uint16_t DrivingMotor::ocr_to_voltage(uint16_t ocr) {
     return map(ocr, 0, _output_ocr_max, 0, _output_voltage_max_mv);
   }
 }

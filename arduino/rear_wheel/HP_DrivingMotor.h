@@ -32,8 +32,8 @@ namespace HP {
     private:
       uint8_t _pin = 9;
       uint16_t _output_ocr_max = 1023, _output_voltage_max_mv = 5000, _voltage_max_mv = 5000, _voltage_min_mv = 0;
-      uint8_t voltage_to_ocr(uint16_t voltage_mv);
-      uint16_t ocr_to_voltage(uint8_t ocr);
+      uint16_t voltage_to_ocr(uint16_t voltage_mv);
+      uint16_t ocr_to_voltage(uint16_t ocr);
   };
 }
 #endif

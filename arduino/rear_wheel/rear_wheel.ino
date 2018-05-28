@@ -4,8 +4,10 @@
 HP::DrivingMotor driving_motor;
 HP::Brake brake_servo;
 
-#define voltage_min_mv 1000
-#define voltage_max_mv 4000
+#define voltage_min_mv 1400
+#define voltage_max_mv 3800
+#define pulse_min_us 800
+#define pulse_max_us 1600
 
 #define speed_max_cmd 100
 #define brake_max_cmd 100
@@ -34,11 +36,11 @@ void setup() {
   nh.initNode();
   nh.subscribe(speed_sub);
   nh.subscribe(brake_sub);
-  driving_motor.set_voltage_range(voltage_min_mv, voltage_max_mv);
   driving_motor.begin();
-  brake_servo.set_rotation_range(0, brake_max_cmd);
+  driving_motor.set_voltage_range(voltage_min_mv, voltage_max_mv);
   brake_servo.begin();
-  brake_servo.write(100);
+  brake_servo.set_rotation_range(0, brake_max_cmd);
+  brake_servo.set_pulse_range(pulse_min_us, pulse_max_us);
 }
 
 void loop() {
