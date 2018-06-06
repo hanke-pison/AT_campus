@@ -19,9 +19,9 @@ except ImportError:
             break
     from catkin.environment_cache import generate_environment_script
 
-code = generate_environment_script('/home/hanke/RPI/devel/env.sh')
+code = generate_environment_script('/home/nvidia/AT_campus/RPI/devel/env.sh')
 
-output_filename = '/home/hanke/RPI/build/catkin_generated/setup_cached.sh'
+output_filename = '/home/nvidia/AT_campus/RPI/build/catkin_generated/setup_cached.sh'
 with open(output_filename, 'w') as f:
     #print('Generate script for cached setup "%s"' % output_filename)
     f.write('\n'.join(code))

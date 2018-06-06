@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/hanke/RPI/src
-# Build directory: /home/hanke/RPI/build
+# Source directory: /home/nvidia/AT_campus/RPI/src
+# Build directory: /home/nvidia/AT_campus/RPI/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

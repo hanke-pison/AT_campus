@@ -1,2 +1,2 @@
 hanke_pison_image_transport
--DCATKIN_DEVEL_PREFIX=/home/hanke/RPI/devel -DCMAKE_INSTALL_PREFIX=/home/hanke/RPI/install -G Unix Makefiles
+-DCATKIN_DEVEL_PREFIX=/home/nvidia/AT_campus/RPI/devel -DCMAKE_INSTALL_PREFIX=/home/nvidia/AT_campus/RPI/install -G Unix Makefiles

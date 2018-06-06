@@ -1,0 +1,11 @@
+<launch>
+
+    <node pkg="hanke_pison_image_transport" type="my_subscriber" name="left_image">
+    <remap from="/camera/image" to="/left/image_rect_color" />
+    </node>
+
+    <node pkg="hanke_pison_image_transport" type="my_subscriber" name="right_image">
+    <remap from="/camera/image" to="/left/image_raw_color" />
+    </node>
+
+</launch>

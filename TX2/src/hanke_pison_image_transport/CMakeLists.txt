@@ -4,9 +4,9 @@ project(hanke_pison_image_transport)
 find_package(catkin REQUIRED COMPONENTS cv_bridge image_transport message_generation sensor_msgs message_filters)
 
 # add the resized image message
-add_message_files(DIRECTORY msg
-   FILES ResizedImage.msg
-)
+#add_message_files(DIRECTORY msg
+#   FILES Image.msg
+#)
 generate_messages(DEPENDENCIES sensor_msgs)
 
 catkin_package(CATKIN_DEPENDS cv_bridge image_transport message_runtime sensor_msgs message_filters)
@@ -25,9 +25,9 @@ add_executable(my_subscriber src/my_subscriber.cpp)
 add_dependencies(my_subscriber ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
 target_link_libraries(my_subscriber ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
-add_executable(bird_view src/bird_view.cpp)
-add_dependencies(bird_view ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
-target_link_libraries(bird_view ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+add_executable(bird_view_noIT src/bird_view_noIT.cpp)
+add_dependencies(bird_view_noIT ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
+target_link_libraries(bird_view_noIT ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
 add_executable(bird_view_synchornizer src/bird_view_synchornizer.cpp)
 add_dependencies(bird_view_synchornizer ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})

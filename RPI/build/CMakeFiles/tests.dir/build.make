@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/hanke/RPI/src
+CMAKE_SOURCE_DIR = /home/nvidia/AT_campus/RPI/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/hanke/RPI/build
+CMAKE_BINARY_DIR = /home/nvidia/AT_campus/RPI/build
 
 # Utility rule file for tests.
 
@@ -67,6 +67,6 @@ CMakeFiles/tests.dir/clean:
 .PHONY : CMakeFiles/tests.dir/clean
 
 CMakeFiles/tests.dir/depend:
-	cd /home/hanke/RPI/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/hanke/RPI/src /home/hanke/RPI/src /home/hanke/RPI/build /home/hanke/RPI/build /home/hanke/RPI/build/CMakeFiles/tests.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/nvidia/AT_campus/RPI/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/AT_campus/RPI/src /home/nvidia/AT_campus/RPI/src /home/nvidia/AT_campus/RPI/build /home/nvidia/AT_campus/RPI/build /home/nvidia/AT_campus/RPI/build/CMakeFiles/tests.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/tests.dir/depend
 

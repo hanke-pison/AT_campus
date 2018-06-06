@@ -2,7 +2,7 @@
 #include <image_transport/image_transport.h>
 #include <opencv2/highgui/highgui.hpp>
 #include <cv_bridge/cv_bridge.h>
-
+#include <iostream>
 
 class bird_view{
   private:
@@ -13,14 +13,14 @@ class bird_view{
     image_transport::Subscriber right_sub;
 
   public:
-    bird_view(image_transport::ImageTransport& it){
-      left_sub = it.subscribe("/left_pi/camera/image", 1, &bird_view::left_imageCallback, this);
-      right_sub = it.subscribe("/right_pi/camera/image", 1, &bird_view::right_imageCallback, this);
+    bird_view(image_transport::ImageTransport& left_it, image_transport::ImageTransport& right_it){
+      left_sub = left_it.subscribe("camera/image", 1, &bird_view::left_imageCallback, this);
+      right_sub = right_it.subscribe("camera/image", 1, &bird_view::right_imageCallback, this);
 
     }
 
     void left_imageCallback(const sensor_msgs::ImageConstPtr& msg)
-         {
+    {
       try
       {
         left_image = cv_bridge::toCvShare(msg, "bgr8")->image;
@@ -69,14 +69,16 @@ class bird_view{
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "image_listener");
-  ros::NodeHandle nh;
+  ros::NodeHandle left_pi("/left_pi");
+  ros::NodeHandle right_pi("/right_pi");
   
 //  bird_view a(nh);
   cv::namedWindow("left_view");
   cv::namedWindow("right_view");
   cv::startWindowThread();
-  image_transport::ImageTransport it(nh);
-  bird_view a(it);
+  image_transport::ImageTransport left_it(left_pi);
+  image_transport::ImageTransport right_it(right_pi);
+  bird_view a(left_it, right_it);
 //  image_transport::ImageTransport left(nh);
 //  image_transport::Subscriber left_sub = right.subscribe("/left_pi/camera/image", 1, &bird_view::left_imageCallback, &a);
 //  image_transport::Subscriber right_sub = left.subscribe("/right_pi/camera/image", 1, &bird_view::right_imageCallback, &a);
