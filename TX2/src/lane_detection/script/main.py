@@ -1,6 +1,8 @@
 #! /usr/bin/env python
 from __future__ import print_function
 import cv2
+import rospy
+from std_msgs.msg import Int16
 import os
 import matplotlib.pyplot as plt
 from calibration_utils import calibrate_camera, undistort
@@ -158,8 +160,9 @@ if __name__ == '__main__':
 #            plt.imshow(cv2.cvtColor(blend, code=cv2.COLOR_BGR2RGB))
 #            plt.show()
 #    cap=cv2.VideoCapture("src/lane_detection/script/project_video.mp4")
-    cap=cv2.VideoCapture(1)
-
+    cap=cv2.VideoCapture(0)
+    pub = rospy.Publisher('offset_center', Int16, queue_size=1)
+    rospy.init_node('lane_detection', anonymous=True)
     while(True):
         rec, frame=cap.read()
         cv2.imshow('frame', process_pipeline(frame))

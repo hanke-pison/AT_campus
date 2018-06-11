@@ -20,10 +20,10 @@ def birdeye(img, verbose=False):
 #                      [0, h-10],    # bl
 #                      [546, 460],   # tl
 #                      [732, 460]])  # tr
-    src = np.float32([[w, h-7],    # br
-                      [0, h-7],    # bl
-                      [273, 307],   # tl
-                      [366, 307]])  # tr
+    src = np.float32([[w, h],    # br
+                      [0, h],    # bl
+                      [200, 300],   # tl
+                      [400, 300]])  # tr
 
     dst = np.float32([[w, h],       # br
                       [0, h],       # bl
