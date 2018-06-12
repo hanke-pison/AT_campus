@@ -29,8 +29,8 @@ void brake_cb(const std_msgs::Int16& cmd_msg){
   brake_servo.write(cmd_msg.data);
 }
 
-ros::Subscriber<std_msgs::Int16> speed_sub("speed", speed_cb);
-ros::Subscriber<std_msgs::Int16> brake_sub("brake", brake_cb);
+ros::Subscriber<std_msgs::Int16> speed_sub("speed_cmd", speed_cb);
+ros::Subscriber<std_msgs::Int16> brake_sub("brake_cmd", brake_cb);
 
 void setup() {
   nh.initNode();

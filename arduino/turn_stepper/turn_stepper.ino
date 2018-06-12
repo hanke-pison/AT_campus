@@ -18,7 +18,7 @@ void turn_cb(const std_msgs::Int16& cmd_msg){
   target_count = -((float)(cmd_msg.data/10))*ppd;
 }
 
-ros::Subscriber<std_msgs::Int16> turn_sub("turn", turn_cb);
+ros::Subscriber<std_msgs::Int16> turn_sub("turn_cmd", turn_cb);
 
 void setup() {
   turn_stepper.init();

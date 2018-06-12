@@ -7,9 +7,9 @@ std_msgs::Int16 turn_msg;
 std_msgs::Int16 brake_msg;
 std_msgs::Int16 speed_msg;
 
-ros::Publisher turn_pub("turn", &turn_msg);
-ros::Publisher brake_pub("brake", &brake_msg);
-ros::Publisher speed_pub("speed", &speed_msg);
+ros::Publisher turn_pub("turn_cmd", &turn_msg);
+ros::Publisher brake_pub("brake_cmd", &brake_msg);
+ros::Publisher speed_pub("speed_cmd", &speed_msg);
 
 // 1200-1700
 // 1000-1900
