@@ -1,3 +1,5 @@
+#include <ros.h>
+#include <std_msgs/Int16.h>
 #include "HP_Receiver.h"
 
 // 1200-1700
