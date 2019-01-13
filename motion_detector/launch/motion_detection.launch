@@ -1,0 +1,8 @@
+<launch>
+  <!-- Launch the motion detector node for image processing. -->
+  <node pkg="motion_detector" name="MotionDetector" type="motion_detector.py"/>
+  <!-- Launch the driver node for our usb camera. -->
+
+  <node name="rviz" pkg="rviz" type="rviz" required="true" 
+       args="-d $(find motion_detector)/rviz/motion.rviz" /> 
+</launch>
